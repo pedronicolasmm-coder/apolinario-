@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Apolinário dos Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:#FFFFFF;
+  color:#0A1428;
+  font-family:'Barlow',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+  background:#0B2EAE;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr 480px;
+}
+.hero-left{
+  padding:80px 60px;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+}
+.hero-right{
+  position:relative;overflow:hidden;
+}
+.hero-right img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  display:block;
+}
+.hero-right-placeholder{
+  width:100%;height:100%;
+  background:rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:12px;
+}
+.hero-right::after{
+  content:'';
+  position:absolute;
+  left:0;top:0;bottom:0;width:80px;
+  background:linear-gradient(90deg,#0B2EAE,transparent);
+  z-index:1;
+}
+.hero-slash{
+  position:absolute;
+  top:0;bottom:0;left:-40px;
+  width:80px;
+  background:#F5A800;
+  transform:skewX(-6deg);
+  z-index:3;
+}
+.hero-city{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);
+  margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.hero-city::before{content:'';width:24px;height:2px;background:#F5A800;}
+.hero-name{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:clamp(48px,6vw,80px);
+  color:#FFFFFF;
+  line-height:.95;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.hero-name .yellow{
+  color:#F5A800;
+  display:block;
+}
+.hero-desc{
+  font-size:17px;color:rgba(255,255,255,0.65);
+  max-width:420px;margin-bottom:36px;
+  line-height:1.6;
+}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;}
+.chip{
+  border:2px solid rgba(255,255,255,0.25);
+  color:#FFFFFF;
+  font-family:'Barlow',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 18px;border-radius:2px;
+}
+.chip.filled{background:#F5A800;border-color:#F5A800;color:#0A1428;}
+
+/* SECTION HEADER */
+.s-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:#0B2EAE;margin-bottom:10px;
+}
+.s-label::before{content:'';width:28px;height:3px;background:#F5A800;border-radius:1px;}
+.s-title{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(32px,4vw,52px);text-transform:uppercase;
+  color:#0A1428;line-height:1;margin-bottom:0;
+}
+.s-title .blue{color:#0B2EAE;}
+.s-title .yellow{color:#F5A800;}
+
+/* PLACEHOLDER */
+.ph{
+  background:#F0F4FF;
+  border:2px dashed #C0CFEE;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:10px;
+  padding:32px;
+}
+.ph svg{color:#8090C0;}
+.ph span{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:#8090C0;text-align:center;
+}
+.ph-photo{
+  background:#E8EDF8;
+  border:2px dashed #C0CFEE;
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+}
+.ph-photo svg{color:#8090C0;}
+.ph-photo span{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:#8090C0;text-align:center;
+}
+
+/* SECTIONS */
+.sec{padding:80px 0;}
+.container{max-width:1100px;margin:0 auto;padding:0 40px;}
+.sec-blue{background:#0B2EAE;}
+.sec-blue .s-label{color:rgba(255,255,255,0.5);}
+.sec-blue .s-title{color:#FFFFFF;}
+.sec-blue .ph{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);}
+.sec-blue .ph svg,.sec-blue .ph-photo svg{color:rgba(255,255,255,0.3);}
+.sec-blue .ph span,.sec-blue .ph-photo span{color:rgba(255,255,255,0.3);}
+.sec-blue .ph-photo{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.15);}
+.sec-gray{background:#F5F7FC;}
+
+/* INTRO */
+.intro-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
+  margin-top:48px;
+}
+.intro-text p{font-size:16px;color:#3A4A6A;line-height:1.8;margin-bottom:16px;}
+
+/* MILITAR */
+.mil-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;}
+.mil-timeline{display:flex;flex-direction:column;gap:0;}
+.mil-item{
+  padding:24px 0 24px 24px;
+  border-left:3px solid #E0E8F8;
+  margin-left:8px;
+  position:relative;
+}
+.mil-item::before{
+  content:'';position:absolute;
+  left:-8px;top:28px;
+  width:14px;height:14px;border-radius:50%;
+  background:#0B2EAE;border:3px solid #FFFFFF;
+  box-shadow:0 0 0 2px #0B2EAE;
+}
+.mil-item.active{border-left-color:#F5A800;}
+.mil-item.active::before{background:#F5A800;box-shadow:0 0 0 2px #F5A800;}
+.mil-year{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:13px;color:#0B2EAE;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.mil-item.active .mil-year{color:#F5A800;}
+.mil-ph-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.mil-ph-wrap .ph-photo:first-child{grid-row:span 2;aspect-ratio:unset;min-height:240px;}
+.mil-ph-wrap .ph-photo{aspect-ratio:1;}
+
+/* LIONS */
+.lions-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;
+  margin-top:48px;align-items:start;
+}
+.lions-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+.stat{
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:4px;padding:20px;text-align:center;
+}
+.stat .sv{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:44px;color:#F5A800;display:block;line-height:1;margin-bottom:6px;
+}
+.stat .sl{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.4;}
+.lions-photos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.lions-photos .ph-photo{aspect-ratio:1;}
+
+/* VIAGENS */
+.viagens-wrap{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  margin-top:48px;
+}
+.v-card{border-radius:4px;overflow:hidden;box-shadow:0 4px 24px rgba(11,46,174,0.12);}
+.v-img{aspect-ratio:4/3;}
+.v-info{padding:18px;background:#FFFFFF;border-top:4px solid #0B2EAE;}
+.v-info.yellow-top{border-top-color:#F5A800;}
+.v-country{
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:18px;text-transform:uppercase;color:#0B2EAE;margin-bottom:6px;
+}
+.v-desc{font-size:13px;color:#6A7A9A;}
+
+/* CONQUISTAS */
+.cq-wrap{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-top:48px;
+}
+.cq{
+  border-radius:4px;padding:24px 18px;text-align:center;
+  background:#FFFFFF;
+  border-top:5px solid #0B2EAE;
+  box-shadow:0 2px 16px rgba(11,46,174,0.08);
+}
+.cq.yellow{border-top-color:#F5A800;}
+.cq .cv{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:46px;color:#0B2EAE;display:block;line-height:1;margin-bottom:8px;
+}
+.cq.yellow .cv{color:#F5A800;}
+.cq .cl{font-size:13px;color:#6A7A9A;line-height:1.4;}
+
+/* FOOTER */
+.footer{
+  background:#0B2EAE;
+  padding:48px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-name{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:24px;text-transform:uppercase;color:#FFFFFF;
+  letter-spacing:.05em;
+}
+.footer-name span{color:#F5A800;}
+.footer-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-top:4px;
+}
+.footer-right{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);text-align:right;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{height:400px;}
+  .intro-wrap,.mil-wrap,.lions-wrap{grid-template-columns:1fr;}
+  .viagens-wrap,.cq-wrap{grid-template-columns:1fr 1fr;}
+  .container{padding:0 24px;}
+  .sec{padding:60px 0;}
+  .hero-left{padding:60px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-city">Santo Ângelo · Rio Grande do Sul</div>
+    <div class="hero-name">
+      José<br>Apolinário
+      <span class="yellow">dos Santos</span>
+    </div>
+    <p class="hero-desc">Militar de carreira. Duas vezes presidente do Lions Clube. Uma vida dedicada ao serviço e à comunidade de Santo Ângelo.</p>
+    <div class="hero-chips">
+      <span class="chip filled">Militar</span>
+      <span class="chip">Lions Clube</span>
+      <span class="chip">Santo Ângelo</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-slash"></div>
+    <img src="/mnt/user-data/uploads/1782483807721__7853D35E-AFEB-4B6B-A956-193DDEDCB965_.png" alt="José Apolinário" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="hero-right-placeholder" style="display:none;">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,0.2);text-transform:uppercase;letter-spacing:.1em;text-align:center;">Foto principal<br>a inserir</span>
+    </div>
+  </div>
+</div>
+
+<!-- QUEM É APOLINÁRIO -->
+<div class="sec">
+  <div class="container">
+    <div class="s-label">Apresentação</div>
+    <div class="s-title">Quem é <span class="blue">Apolinário?</span></div>
+    <div class="intro-wrap">
+      <div class="intro-text">
+        <div class="ph" style="min-height:220px;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Texto de apresentação<br>pessoal a inserir</span>
+        </div>
+      </div>
+      <div class="ph-photo" style="min-height:320px;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Foto destaque a inserir</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAJETÓRIA MILITAR -->
+<div class="sec sec-gray">
+  <div class="container">
+    <div class="s-label">Carreira Militar</div>
+    <div class="s-title">Formado pela <span class="blue">Disciplina</span></div>
+    <div class="mil-wrap">
+      <div class="mil-timeline">
+        <div class="mil-item active">
+          <div class="mil-year">A inserir</div>
+          <div class="ph" style="min-height:64px;"><span>Marco militar 1 a inserir</span></div>
+        </div>
+        <div class="mil-item">
+          <div class="mil-year">A inserir</div>
+          <div class="ph" style="min-height:64px;"><span>Marco militar 2 a inserir</span></div>
+        </div>
+        <div class="mil-item">
+          <div class="mil-year">A inserir</div>
+          <div class="ph" style="min-height:64px;"><span>Marco militar 3 a inserir</span></div>
+        </div>
+        <div class="mil-item">
+          <div class="mil-year">A inserir</div>
+          <div class="ph" style="min-height:64px;"><span>Marco militar 4 a inserir</span></div>
+        </div>
+      </div>
+      <div class="mil-ph-wrap">
+        <div class="ph-photo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto militar destaque</span></div>
+        <div class="ph-photo" style="aspect-ratio:1;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 2</span></div>
+        <div class="ph-photo" style="aspect-ratio:1;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 3</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIONS CLUBE -->
+<div class="sec sec-blue">
+  <div class="container">
+    <div class="s-label">Lions Clube de Santo Ângelo</div>
+    <div class="s-title" style="color:#FFFFFF;">Servindo com <span style="color:#F5A800;">Propósito</span></div>
+    <div class="lions-wrap">
+      <div>
+        <p style="color:rgba(255,255,255,0.7);font-size:16px;line-height:1.8;margin-bottom:24px;margin-top:24px;">Apolinário é membro ativo do Lions Clube de Santo Ângelo, uma das maiores organizações humanitárias do mundo. Sua liderança o levou à presidência do clube por duas vezes consecutivas.</p>
+        <div class="ph" style="min-height:100px;margin-bottom:16px;"><span>Descrição das ações realizadas no Lions a inserir</span></div>
+        <div class="lions-photos">
+          <div class="ph-photo" style="aspect-ratio:1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 1</span></div>
+          <div class="ph-photo" style="aspect-ratio:1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 2</span></div>
+          <div class="ph-photo" style="aspect-ratio:1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto 3</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="lions-stats" style="margin-top:24px;">
+          <div class="stat"><span class="sv">2x</span><span class="sl">Presidente do Lions Clube de Santo Ângelo</span></div>
+          <div class="stat"><span class="sv">—</span><span class="sl">Anos como membro ativo<br><em style="font-size:11px;color:rgba(255,255,255,0.3);">a inserir</em></span></div>
+          <div class="stat" style="grid-column:span 2;">
+            <div class="ph" style="border:none;background:transparent;min-height:80px;"><span>Dado de impacto social a inserir</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VIAGENS -->
+<div class="sec">
+  <div class="container">
+    <div class="s-label">Experiências Internacionais</div>
+    <div class="s-title">O mundo como <span class="yellow">Escola</span></div>
+    <div class="viagens-wrap">
+      <div class="v-card">
+        <div class="v-img ph-photo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto da viagem</span></div>
+        <div class="v-info"><div class="v-country">🌍 África</div><div class="v-desc">Descrição da missão e experiência a inserir</div></div>
+      </div>
+      <div class="v-card">
+        <div class="v-img ph-photo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto da viagem</span></div>
+        <div class="v-info yellow-top"><div class="v-country">🌐 Destino 2</div><div class="v-desc">Descrição a inserir</div></div>
+      </div>
+      <div class="v-card">
+        <div class="v-img ph-photo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto da viagem</span></div>
+        <div class="v-info"><div class="v-country">🌐 Destino 3</div><div class="v-desc">Descrição a inserir</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONQUISTAS -->
+<div class="sec sec-gray">
+  <div class="container">
+    <div class="s-label">Números e Conquistas</div>
+    <div class="s-title">Uma vida de <span class="blue">Impacto</span></div>
+    <div class="cq-wrap">
+      <div class="cq"><span class="cv">2x</span><span class="cl">Presidente do Lions Clube de Santo Ângelo</span></div>
+      <div class="cq yellow"><span class="cv">—</span><span class="cl">Anos de serviço militar<br><em style="font-size:11px;color:#B0C0E8;">a inserir</em></span></div>
+      <div class="cq"><span class="cv">—</span><span class="cl">Países visitados<br><em style="font-size:11px;color:#B0C0E8;">a inserir</em></span></div>
+      <div class="cq yellow"><span class="cv">—</span><span class="cl">Conquista relevante<br><em style="font-size:11px;color:#B0C0E8;">a inserir</em></span></div>
+    </div>
+    <div class="ph" style="margin-top:20px;min-height:120px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+      <span>Conquistas adicionais e dados relevantes a inserir</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-name">José <span>Apolinário</span> dos Santos</div>
+    <div class="footer-sub">Santo Ângelo · Rio Grande do Sul</div>
+  </div>
+  <div class="footer-right">
+    Santo Ângelo · RS<br>
+    Instagram · Facebook
+  </div>
+</div>
+
+</body>
+</html>
